@@ -33,4 +33,11 @@ Remarks
 configure_file(<input> <output>)
 ```
 where default paths are CMAKE_CURRENT_SOURCE_DIR (project root for this exerise) and CMAKE_CURRENT_BINARY_DIR (build directory), respectively.
-- fds
+
+## Step 2
+1. Add a library called MathFunctions (MathFunctions/CMakeLists.txt) Hint: You will need the add_library command
+2. Use add_subdirectory() to add MathFunctions to this project (CMakeLists.txt)
+3. Use target_link_libraries to link the library to our executable (CMakeLists.txt)
+4. Add MathFunctions to Tutorial's target_include_directories() (CMakeLists.txt)
+5. Include MathFunctions.h (tutorial.cxx)
+6. Replace sqrt with mysqrt (tutorial.cxx)
