@@ -1,6 +1,7 @@
 # CMake tutorial with git
 For each task, the required file to modify is shown as (file to edit). The
 default working directory is the project root.
+cmake version 3.26
 
 ## How to invoke CMake?
 I prefer to work in the project root and out-of-source build in a subdirectory
@@ -12,6 +13,11 @@ and you only need to do this once. To build the project
 ```shell script
 cmake --build build
 ```
+If you want to turn off an option
+```shell script
+cmake -S . -B build -DUSE_MYMATH=OFF
+```
+-D<option>=OFF/ON
 
 ## Step 1
 1. Set the minimum required version of CMake to be 3.10 (CMakeLists.txt)
@@ -41,3 +47,10 @@ where default paths are CMAKE_CURRENT_SOURCE_DIR (project root for this exerise)
 4. Add MathFunctions to Tutorial's target_include_directories() (CMakeLists.txt)
 5. Include MathFunctions.h (tutorial.cxx)
 6. Replace sqrt with mysqrt (tutorial.cxx)
+7. Create a variable USE_MYMATH using option and set default to ON (CMakeLists.txt)
+8. Use list() and APPEND to create a list of optional libraries called EXTRA_LIBS and a list of optional include directories called EXTRA_INCLUDES. Add the MathFunctions library and source directory to the appropriate lists. (CMakeLists.txt)
+9. Use EXTRA_LIBS instead of the MathFunctions specific values in target_link_libraries. (CMakeLists.txt)
+10. Use EXTRA_INCLUDES instead of the MathFunctions specific values in target_include_directories. (CMakeLists.txt)
+11. Only include MathFunctions if USE_MYMATH is defined (tutorial.cxx)
+12. Use mysqrt if USE_MYMATH is defined and sqrt otherwise (tutorial.cxx)
+13. use cmakedefine to define USE_MYMATH (TutorialConfig.h.in)
