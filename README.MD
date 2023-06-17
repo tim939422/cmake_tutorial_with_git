@@ -54,3 +54,8 @@ where default paths are CMAKE_CURRENT_SOURCE_DIR (project root for this exerise)
 11. Only include MathFunctions if USE_MYMATH is defined (tutorial.cxx)
 12. Use mysqrt if USE_MYMATH is defined and sqrt otherwise (tutorial.cxx)
 13. use cmakedefine to define USE_MYMATH (TutorialConfig.h.in)
+
+## Step 3
+1. State that anybody linking to MathFunctions needs to include the current source directory, while MathFunctions itself doesn't. (Hint: Use target_include_directories with the INTERFACE keyword) (MathFunctions/CMakeLists.txt)
+2. Remove EXTRA_INCLUDES list (CMakeLists.txt)
+3. Remove use of EXTRA_INCLUDES (CMakeLists.txt)

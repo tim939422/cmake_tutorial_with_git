@@ -19,7 +19,6 @@ configure_file(TutorialConfig.h.in TutorialConfig.h)
 if(USE_MYMATH)
     add_subdirectory(MathFunctions)
     list(APPEND EXTRA_LIBS MathFunctions)
-    list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
 endif()
 
 # the main target
@@ -27,11 +26,11 @@ add_executable(Tutorial tutorial.cxx)
 
 # link our library (MathFunctions) to our executable (Tutorial)
 # I don't know what PUBLIC means right now.
+# this link may help https://leimao.github.io/blog/CMake-Public-Private-Interface/
 target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
 
 # add binary build tree to include directory which the compiler will search
 # when do we need to use quotes when use a reference of a variable?
 target_include_directories(Tutorial PUBLIC
                            "${PROJECT_BINARY_DIR}"
-                           ${EXTRA_INCLUDES}
                            )
